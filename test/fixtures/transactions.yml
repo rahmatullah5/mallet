@@ -1,0 +1,15 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sourceable: one
+  sourceable_type: Sourceable
+  targetable: one
+  targetable_type: Targetable
+  amount: 1.5
+
+two:
+  sourceable: two
+  sourceable_type: Sourceable
+  targetable: two
+  targetable_type: Targetable
+  amount: 1.5
