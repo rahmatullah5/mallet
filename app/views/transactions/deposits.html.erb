@@ -1,0 +1,37 @@
+<table class="table table-striped">
+  <tr>
+    <th colspan = 5>
+      <center>Deposits Transactions</center>
+    </th>
+  <tr>
+  <tr>
+    <th>No</th>
+    <th>Transcation Id</th>
+    <th>Amount</th>
+    <th>Received at</th>
+  </tr>
+  <% @deposits.each_with_index do |deposit, i| %>
+    <tr>
+      <td><%= i+1 %></td>
+      <td><%= deposit.id %></td>
+      <td><%= number_to_currency_id(deposit.amount) %></td>
+      <td><%= deposit.created_at %></td>
+    </tr>    
+  <% end %>
+  <tr>
+    <th colspan='2'>
+      Total deposits
+    </th>
+    <td>
+      <%= number_to_currency_id @current_logged_user.sum_of_deposits %>
+    </td>
+  <tr>
+  <tr>
+    <th colspan='2'>
+      deposits count
+    </th>
+    <td>
+      <%= @current_logged_user.deposits.count %>
+    </td>
+  <tr>  
+</table>
