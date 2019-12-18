@@ -55,7 +55,8 @@ module Wallet
   def init_default_balance
     ActiveRecord::Base.transaction do
       #let's assume whenever user create new account, the admin will gave them 1000 balance for free
-      debits.create!(sourceable: Admin.first, amount: 1000)
+      debit = debits.new(sourceable: Admin.first, amount: 1000)
+      debit.save(validate: false)
     end
   end
 end
