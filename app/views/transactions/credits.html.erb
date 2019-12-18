@@ -1,0 +1,39 @@
+<table class="table table-striped">
+  <tr>
+    <th colspan = 5>
+      <center>Credits Transactions</center>
+    </th>
+  <tr>
+  <tr>
+    <th>No</th>
+    <th>Transcation Id</th>
+    <th>Amount</th>
+    <th>Transfered To</th>
+    <th>Received at</th>
+  </tr>
+  <% @credits.each_with_index do |credit, i| %>
+    <tr>
+      <td><%= i+1 %></td>
+      <td><%= credit.id %></td>
+      <td><%= number_to_currency_id(credit.amount) %></td>
+      <td><%= "#{credit.targetable.id} / #{credit.targetable.class} / #{credit.targetable.email}" %> / <%=  %></td>
+      <td><%= credit.created_at %></td>
+    </tr>    
+  <% end %>
+  <tr>
+    <th colspan='2'>
+      Total credits
+    </th>
+    <td>
+      <%= number_to_currency_id @current_logged_user.sum_of_credits %>
+    </td>
+  <tr>
+  <tr>
+    <th colspan='2'>
+      credits count
+    </th>
+    <td>
+      <%= @current_logged_user.credits.count %>
+    </td>
+  <tr>  
+</table>
