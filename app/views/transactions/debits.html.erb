@@ -1,0 +1,39 @@
+<table class="table table-striped">
+  <tr>
+    <th colspan = 5>
+      <center>Debits Transactions</center>
+    </th>
+  <tr>
+  <tr>
+    <th>No</th>
+    <th>Transcation Id</th>
+    <th>Amount</th>
+    <th>Funds Source</th>
+    <th>Received at</th>
+  </tr>
+  <% @debits.each_with_index do |debit, i| %>
+    <tr>
+      <td><%= i+1 %></td>
+      <td><%= debit.id %></td>
+      <td><%= number_to_currency_id(debit.amount) %></td>
+      <td><%= "#{debit.sourceable.id} / #{debit.sourceable.class} / #{debit.sourceable.email}" %> / <%=  %></td>
+      <td><%= debit.created_at %></td>
+    </tr>    
+  <% end %>
+  <tr>
+    <th colspan='2'>
+      Total Debits
+    </th>
+    <td>
+      <%= number_to_currency_id @current_logged_user.sum_of_debits %>
+    </td>
+  <tr>
+  <tr>
+    <th colspan='2'>
+      Debits count
+    </th>
+    <td>
+      <%= @current_logged_user.debits.count %>
+    </td>
+  <tr>  
+</table>
