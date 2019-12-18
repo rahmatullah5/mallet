@@ -1,0 +1,37 @@
+<table class="table table-striped">
+  <tr>
+    <th colspan = 5>
+      <center>Withdraws Transactions</center>
+    </th>
+  <tr>
+  <tr>
+    <th>No</th>
+    <th>Transcation Id</th>
+    <th>Amount</th>
+    <th>Received at</th>
+  </tr>
+  <% @withdraws.each_with_index do |withdraw, i| %>
+    <tr>
+      <td><%= i+1 %></td>
+      <td><%= withdraw.id %></td>
+      <td><%= number_to_currency_id(withdraw.amount) %></td>
+      <td><%= withdraw.created_at %></td>
+    </tr>    
+  <% end %>
+  <tr>
+    <th colspan='2'>
+      Total withdraws
+    </th>
+    <td>
+      <%= number_to_currency_id @current_logged_user.sum_of_withdraws %>
+    </td>
+  <tr>
+  <tr>
+    <th colspan='2'>
+      withdraws count
+    </th>
+    <td>
+      <%= @current_logged_user.withdraws.count %>
+    </td>
+  <tr>  
+</table>
