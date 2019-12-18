@@ -1,5 +1,5 @@
 class Transaction < ApplicationRecord
-  belongs_to :sourceable, polymorphic: true
+  belongs_to :sourceable, polymorphic: true, optional: true 
   belongs_to :targetable, polymorphic: true, optional: true 
 
   validates :amount, presence: true, numericality: { greater_than: 0 }
@@ -7,7 +7,7 @@ class Transaction < ApplicationRecord
 
   private
   def check_current_balance
-    errors.add(:amount, 'is not enough to process this transcation') if sourceable.balance - amount < 0
+    errors.add(:amount, 'is not enough to process this transcation') if sourceable.present? && sourceable.balance - amount < 0
   end
 
   def check_self_transfer
