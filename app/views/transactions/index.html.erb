@@ -1,0 +1,71 @@
+<div class='row'>
+  <div class='col-md-3'>
+    <h4>Current Balance</h4>
+  </div>
+  <div class='col-md-3'>
+    <h4>Total Deposits</h4>
+  </div>  
+  <div class='col-md-2'>
+    <h4>Total Debits</h4>
+  </div>
+  <div class='col-md-2'>
+    <h4>Total Withdraw</h4>
+  </div>
+  <div class='col-md-2'>
+    <h4>Total Credits</h4>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col-md-3'>
+    <p><%= number_to_currency_id @current_logged_user.balance %></p>
+  </div>
+  <div class='col-md-3'>
+    <p><%= number_to_currency_id @current_logged_user.sum_of_deposits %></p>
+  </div>  
+  <div class='col-md-2'>
+    <p><%= number_to_currency_id @current_logged_user.sum_of_debits %></p>
+  </div>
+  <div class='col-md-2'>
+    <p><%= number_to_currency_id @current_logged_user.sum_of_withdraws %></p>
+  </div>
+  <div class='col-md-2'>
+    <p><%= number_to_currency_id @current_logged_user.sum_of_credits %></p>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col-md-3'>
+    <h4>Transactions Count</h4>
+  </div>
+  <div class='col-md-3'>
+    <h4>Deposits Count</h4>
+  </div>    
+  <div class='col-md-2'>
+    <h4>Debits Count</h4>
+  </div>
+  <div class='col-md-2'>
+    <h4>Withdraws Count</h4>
+  </div>
+  <div class='col-md-2'>
+    <h4>Creditss Count</h4>
+  </div>
+</div>
+
+<div class='row'>
+  <div class='col-md-3'>
+    <p><%= @current_logged_user.transactions_count %></p>
+  </div>
+  <div class='col-md-3'>
+    <p><%= @current_logged_user.deposits.count %></p>
+  </div>  
+  <div class='col-md-2'>
+    <p><%= @current_logged_user.debits.count %></p>
+  </div>
+  <div class='col-md-2'>
+    <p><%= @current_logged_user.withdraws.count %></p>
+  </div>
+  <div class='col-md-2'>
+    <p><%= @current_logged_user.credits.count %></p>
+  </div>
+</div>
