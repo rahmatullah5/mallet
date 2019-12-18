@@ -48,7 +48,7 @@ module Wallet
   end
 
   def transactions_count
-    debits.count + withdraws.count + credits.count
+    debits.count + withdraws.count + credits.count + deposits.count
   end
 
   private
